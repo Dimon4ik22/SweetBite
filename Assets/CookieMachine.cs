@@ -20,7 +20,8 @@ public class CookieMachine : PickableCollectorBase
         if (spawnedPickables.Count <= 8)
         {
             Pickable pickable = _poolerSO.TakeFromPool();
-            pickable.transform.SetPositionAndRotation(cookieSpawnTransform.position,Quaternion.identity);
+            Vector3 spawnPosition = cookieSpawnTransform.position + new Vector3(0f, 0f, -1f);
+            pickable.transform.SetPositionAndRotation(spawnPosition, Quaternion.identity);
             spawnedPickables.Push(pickable);
         }
 

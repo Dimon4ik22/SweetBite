@@ -9,6 +9,8 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: M_ChocolateFlow_2
   m_Shader: {fileID: 4800000, guid: ae76d8357c97f9149985a7883fc1444f, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
   - _COLORMODE_MULTIPLY
   - _SCROLLROTATE_SCROLL
@@ -20,12 +22,14 @@ Material:
   - _SHARPX_ON
   - _SHARPY_ON
   - _SHARPZ_ON
+  - _VERTICALMOVEMENT_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: 2999
   stringTagMap: {}
   disabledShaderPasses: []
+  m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -178,7 +182,7 @@ Material:
     - _ScanlinesspeedY: -5
     - _ScanlinesspeedZ: -5
     - _ScrollingspeedX: 0
-    - _ScrollingspeedY: 0
+    - _ScrollingspeedY: 0.2
     - _Scrollrotate: 0
     - _ShadowColorLightAtten: 1
     - _SharpX: 1
@@ -208,9 +212,9 @@ Material:
     - _UseRimLightMask: 1
     - _UseShadowTexture: 0
     - _UseSpecular: 0
-    - _Verticalmovement: 0
-    - _Verticalmovementamplitude: 0.5
-    - _Verticalmovementfreq: 1
+    - _Verticalmovement: 1
+    - _Verticalmovementamplitude: 0.02
+    - _Verticalmovementfreq: 2
     - _Verticalmovementoffset: 0
     - _Verticalstretch: 0
     - _Verticalstretchamplitude: 0.038
@@ -233,5 +237,5 @@ Material:
     - _RimColor: {r: 0.8, g: 0.8, b: 0.8, a: 0.5}
     - _SColor: {r: 0.6226415, g: 0.6226415, b: 0.6226415, a: 1}
     - _SpecularColor: {r: 0.75, g: 0.75, b: 0.75, a: 1}
-    - _Tiling: {r: 1, g: 1, b: 0, a: 0}
+    - _Tiling: {r: 1, g: 0.63, b: 0, a: 0}
   m_BuildTextureStacks: []

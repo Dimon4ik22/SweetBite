@@ -393,7 +393,7 @@ Transform:
   - {fileID: 8628260651918690987}
   - {fileID: 7314461141184693555}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &7690112637285113541
 BoxCollider:
@@ -403,9 +403,17 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7384123704534449587}
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
   m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Size: {x: 2.018592, y: 3.4023395, z: 1.9740353}
   m_Center: {x: 0.0049443245, y: 1.5077362, z: -0.022222519}
 --- !u!1 &7690112638527734495
