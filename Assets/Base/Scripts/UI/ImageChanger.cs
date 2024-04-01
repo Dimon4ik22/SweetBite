@@ -14,10 +14,19 @@ public class ImageSlideshow : MonoBehaviour
 
     private int currentIndex = 0;
     private float timer;
+    private bool hasShownSlideshow;
 
     private void Start()
     {
-        StartCoroutine(ChangeImage());
+        hasShownSlideshow = PlayerPrefs.GetInt("HasShownSlideshow", 0) == 1;
+        if (!hasShownSlideshow)
+        {
+            StartCoroutine(ChangeImage());
+        }
+        else
+        {
+            SceneManager.LoadScene(_mainSceneName);
+        }
     }
 
     IEnumerator ChangeImage()
@@ -26,8 +35,10 @@ public class ImageSlideshow : MonoBehaviour
         {
             // Затемнение
             yield return StartCoroutine(FadeTo(1, _fadeDuration));
+
             // Смена картинки
             _displayImage.sprite = _images[currentIndex];
+
             // Светлеем
             yield return StartCoroutine(FadeTo(0, _fadeDuration));
 
@@ -35,8 +46,13 @@ public class ImageSlideshow : MonoBehaviour
             yield return new WaitForSeconds(_changeTime);
         }
 
+        // Затемнение последней картинки
+        yield return StartCoroutine(FadeTo(1, _fadeDuration));
+
         // Загрузка основной сцены
         SceneManager.LoadScene(_mainSceneName);
+
+        PlayerPrefs.SetInt("HasShownSlideshow", 1);
     }
 
     IEnumerator FadeTo(float targetAlpha, float duration)

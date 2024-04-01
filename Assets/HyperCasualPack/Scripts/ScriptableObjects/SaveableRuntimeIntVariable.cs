@@ -9,6 +9,8 @@ namespace HyperCasualPack.ScriptableObjects
         [SerializeField] int _initialValue;
         int _runtimeValue = 689;
 
+        private const string PlayerPrefsKey = "SaveableRuntimeIntVariable";
+
         public int RuntimeValue
         {
             get => _runtimeValue;
@@ -25,11 +27,12 @@ namespace HyperCasualPack.ScriptableObjects
 
         public override void RestoreState(object obj)
         {
-            RuntimeValue = (int)obj;
+            RuntimeValue = PlayerPrefs.GetInt(PlayerPrefsKey, (int)obj);
         }
 
         public override object CaptureState()
         {
+            PlayerPrefs.SetInt(PlayerPrefsKey, RuntimeValue);
             return RuntimeValue;
         }
     }

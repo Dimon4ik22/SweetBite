@@ -1,5 +1,6 @@
 using HyperCasualPack.ScriptableObjects;
 using Sirenix.OdinInspector;
+using System.Runtime.InteropServices;
 using TMPro;
 using UnityEngine;
 
@@ -7,15 +8,18 @@ namespace HyperCasualPack
 {
 	public class IntVariableMonitor : MonoBehaviour
 	{
-		[SerializeField] SaveableRuntimeIntVariable _monitorVariable;
+        [DllImport("__Internal")]
+        private static extern void AddScoreExtern(int value);
+
+        [SerializeField] SaveableRuntimeIntVariable _monitorVariable;
 		[SerializeField] TextMeshProUGUI _monitorText;
 
 		void OnEnable()
 		{
 			_monitorVariable.ValueChanged += MonitorVariableOnValueChanged;
 		}
-		
-		void OnDisable()
+
+        void OnDisable()
 		{
 			_monitorVariable.ValueChanged -= MonitorVariableOnValueChanged;
 		}
@@ -34,6 +38,19 @@ namespace HyperCasualPack
         private void SetGoldPlus1000()
         {
             _monitorVariable.RuntimeValue += 1000;
+        }
+
+		public void ShowAdvButton()
+		{
+            Debug.Log("ShowAdvButton call");
+			AddScoreExtern(100);
+        }
+
+        public void AddScore(int value)
+        {
+            Debug.Log("AddScore call");
+            _monitorVariable.RuntimeValue += value;
+            _monitorVariable.CaptureState();
         }
     }
 }

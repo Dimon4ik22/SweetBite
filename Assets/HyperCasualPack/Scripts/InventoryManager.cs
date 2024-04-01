@@ -79,7 +79,7 @@ namespace HyperCasualPack
 		{
 			if (p.PeekData().IsVisible)
 			{
-				Sounds.Instance.PlayPickup();
+				//Sounds.Instance.PlayPickup();
 				return _inventoryVisible.TakePickable(p, out pickable);
 			}
 			
