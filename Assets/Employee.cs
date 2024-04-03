@@ -46,7 +46,7 @@ public class Employee : MonoBehaviour
     private PickableTreeSpawner jobAssignedTree;
     private Factory jobAssignedFactory;
    [SerializeField] Factory chocolateFactory;
-    bool collectingSeed = false;
+    public bool collectingSeed = false;
     bool droppingFactoryItem = false;
     private void Start()
     {
@@ -58,7 +58,7 @@ public class Employee : MonoBehaviour
         
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (assignedJob == JobTypes.NONE)
         {
