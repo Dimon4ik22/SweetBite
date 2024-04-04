@@ -27,7 +27,8 @@ namespace HyperCasualPack
 		void MonitorVariableOnValueChanged(int obj)
 		{
 			_monitorText.text = obj.ToString();
-		}
+            _monitorVariable.CaptureState();
+        }
 
 		[Button]
 		private void SetGoldZero()
