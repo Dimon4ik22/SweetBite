@@ -43,7 +43,7 @@ namespace HyperCasualPack
 
 		public void ShowAdvButton()
 		{
-            Debug.Log("ShowAdvButton call");
+			Time.timeScale = 0;
 			AddScoreExtern(100);
         }
 
